@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: agile_assistant
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      # Database URL to the 'db' service
+      SQLALCHEMY_DATABASE_URL: postgresql://postgres:postgres@db:5432/agile_assistant
+
+      # Hugging Face
+      HF_TOKEN: ${HF_TOKEN}   # optional
+      MODEL_DEVICE: cpu
+      NUM_THREADS: 4
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        # The URL React will call at runtime
+        REACT_APP_API_BASE: http://localhost:8000
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  pgdata:
+  hf_cache:
