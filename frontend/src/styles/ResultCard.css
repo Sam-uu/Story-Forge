@@ -1,0 +1,134 @@
+.result-card {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: #fff;
+  color: #1e293b;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease-out;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.intent-pill {
+  position: absolute;
+  top: -14px;
+  right: 24px;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.intent-pill.feature {
+  background: #16a34a;
+}
+
+.intent-pill.bug {
+  background: #dc2626;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.user-story {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+.criteria-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #374151;
+}
+
+.criteria-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.criteria-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.result-card .save-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.result-card .save-btn:hover {
+  background: #2563eb;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Dark mode */
+html.dark .result-card {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+html.dark .card-title {
+  color: #818cf8;
+}
+
+html.dark .user-story {
+  color: #f1f5f9;
+}
+
+html.dark .criteria-title {
+  color: #cbd5e1;
+}
+
+html.dark .criteria-list {
+  color: #e2e8f0;
+}
+
+html.dark .divider {
+  border-color: #475569;
+}

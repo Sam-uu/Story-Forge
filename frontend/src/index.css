@@ -1,0 +1,20 @@
+html.dark {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+html.dark .result-card {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+html.dark .requirement-input {
+  background: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .divider {
+  border-color: #475569;
+}
